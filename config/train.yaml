@@ -1,0 +1,50 @@
+# 分类类别文件路径
+classes_path: model_data/voc_classes.txt
+# 预训练权重文件路径，为空则不加载
+model_path: ''
+# 输入的大小
+input_shape:
+  - 600
+  - 600
+# anchors大小设置，若识别小物体，建议改小浅层
+anchors_size:
+  - 32
+  - 64
+  - 128
+  - 256
+  - 512
+# 冻结阶段训练参数
+Init_Epoch: 0
+Freeze_Epoch: 1
+Freeze_batch_size: 8
+# 解冻阶段训练参数
+UnFreeze_Epoch: 1
+UnFreeze_batch_size: 4
+# 是否进行冻结训练
+Freeze_Train: True
+# 其它训练参数：学习率、优化器、学习率下降有关
+# Init_lr         模型的最大学习率
+#                 当使用Adam优化器时建议设置  Init_lr=1e-4
+#                 当使用SGD优化器时建议设置   Init_lr=1e-2
+Init_lr: 0.0001
+# ptimizer_type  使用到的优化器种类，可选的有adam、sgd
+#                 当使用Adam优化器时建议设置  Init_lr=1e-4
+#                 当使用SGD优化器时建议设置   Init_lr=1e-2
+# momentum        优化器内部使用到的momentum参数
+# weight_decay    权值衰减，可防止过拟合
+#                 adam会导致weight_decay错误，使用adam时建议设置为0。
+optimizer_type: adam
+momentum: 0.9
+weight_decay: 0
+# lr_decay_type   使用到的学习率下降方式，可选的有'step'、'cos'
+lr_decay_type: cos
+# save_period     多少个epoch保存一次权值，默认每个世代都保存
+save_period: 1
+# save_dir        权值与日志文件保存的文件夹
+save_dir: log
+# 是否进行多线程，若为0则不开启多线程，>0则开启多少个线程
+num_workers: 0
+# 训练集图片和标签信息文件路径
+train_annotation_path: 2007_train.txt
+# 验证集图片和标签信息文件路径
+val_annotation_path: 2007_val.txt

@@ -1,0 +1,23 @@
+---
+#模型路径
+model_path: log/ep001-loss0.794-val_loss1.099.h5
+#检测类别文件
+classes_path: model_data/voc_classes.txt
+#图片大小
+input_shape:
+  - 600
+  - 600
+#预测框的置信度阈值
+confidence: 0.5
+#非极大抑制的阈值
+nms_iou: 0.3
+#每一个特征层先验框的基础大小
+anchors_size:
+  - 32
+  - 64
+  - 128
+  - 256
+  - 512
+#是否进行不失真填充
+letterbox_image: False
+...
